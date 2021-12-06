@@ -1,6 +1,8 @@
-# Generalized Linear Tree
+# Generalized linear tree: An extension of the regression tree that you should know.
 
-#### This is my undergraduate degree thesis in statistics at [Federal University of Ceará](https://www.ufc.br/)
+#### This is my undergraduate degree thesis in statistics at [Department of statistics and applied mathematics](https://dema.ufc.br/pt/) in the [Federal University of Ceará](https://www.ufc.br/)
+
+![initial image](https://github.com/AlbertoRodrigues/generalized_model_tree/blob/main/images/gltex1.png) 
 
 # Introduction
 
@@ -10,7 +12,7 @@ The idea that motivated the development of the Generalized Linear Tree is the sa
 
 For example, imagine that we want to predict a person's salary based on age and years of education. So, we could have the following regression tree:
 
-![](https://www.ufc.br/) age figure
+![age figure](https://github.com/AlbertoRodrigues/normal-tree.png) 
 
 Therefore, we can think of the same structure as a tree, but instead of predicting the same value for the same subset, the prediction will be provided by a regression equation so that the prediction will be different for observations from the same subset of the tree.
 
@@ -18,11 +20,11 @@ So the question we can ask is: how do we obtain this regression equation? One po
 
 For example, we could have the following relationship between the explanatory variable and the response variable:
 
-![](https://www.ufc.br/)scatter plot
+![scatter plot](https://github.com/AlbertoRodrigues/generalized_model_tree/blob/main/images/grafico-exemplo-versao1.jpeg)
 
 So suggesting some linear modeling by parts. Resulting in the following tree below:
 
-linear tree figure
+![linear tree figure](https://github.com/AlbertoRodrigues/generalized_model_tree/blob/main/images/gltlinearex1.png)
 
 Well, despite the model mentioned above being extremely more powerful in terms of predictive power than a common tree, it has a significant disadvantage: it always uses the same model and therefore the same structure for the prediction of an observation, an estimation equation linear and will always be estimated based on the Normal distribution using the maximum likelihood estimator.
 
@@ -38,7 +40,7 @@ To understand how subset models are chosen, we need to understand how the divisi
 
 The idea of ​​separation is to determine homogeneous subsets according to the variability of the target variable. This can also be seen to improve the prediction of each particular model of a subset. More specifically, subsets are generated using the following formula:
 
-![](https://www.ufc.br/)figure formula
+![figure formula](https://github.com/AlbertoRodrigues/generalized_model_tree/blob/main/images/expdivisao.png)
 
 The objective of a good division is to minimize the standard deviation of the target variable of each subset taking into account the quantity of observations. Therefore, we want to maximize this expression to obtain subsets with standard deviation of the target variable smaller than the standard deviation of the target of the entire set and, consequently, improve the estimation of the models of each subset.
 
@@ -66,31 +68,30 @@ With that, we finish the learning process and we have our Generalized Linear Tre
 
 An example is given below:
 
-![](https://www.ufc.br/)Figure Example Generalized Linear Tree
-
+![Figure Example Generalized Linear Tree](https://github.com/AlbertoRodrigues/generalized_model_tree/blob/main/images/gltex1.png)
 
 In this case, we have three subsets and for each one we have a specific GLM. The first equation (from left to right) is a simple linear regression, which is a MLG with normal distribution and identity link function for observations that are less than or equal to 1.55, the second equation given by a MLG with distribution gamma and inverse quadratic link function for observations less than or equal to 1.95 and greater than 1.55 and the third equation is provided by an MLG with inverse normal distribution and logarithmic link function for observations greater than 1.95.
 
-Prediction equations are provided through the inverse function of the link function, but do not worry, this is a specific component of MLG. Despite not being visualized in the tree, the probability distributions for each subset can be verified in the LINK developed code of all training in the R programming language.
+Prediction equations are provided through the inverse function of the link function, but do not worry, this is a specific component of MLG. Despite not being visualized in the tree, the probability distributions for each subset can be verified in the [developed code of all training in the R programming language.]() 
 
 # Predicting new observations
 
 Now is the time to predict observations that the model did not see. For this purpose, we can simply check in which final subset the observation to be predicted belongs based on the prediction equation of the chosen MLG for a given subset.
 
-For example, imagine that we have the following Generalized Linear Tree already trained with our data, and we want to make some predictions. With our feature denoted by $x1$.
+For example, imagine that we have the following Generalized Linear Tree already trained with our data, and we want to make some predictions. With the feature denoted by x1.
 
-![](https://www.ufc.br/) Tree figure with equations
+![Tree figure with equations](https://github.com/AlbertoRodrigues/generalized_model_tree/blob/main/images/gltex2.png) 
 
 We may want to make predictions for some feature values ​​like 2.4, 1.75, 3.31 and 1.55. Therefore, we just need to look at which subset these observations belong to and perform the prediction. Predictions are given in the table below.
 
-![](https://www.ufc.br/) examples predictions
+![examples predictions](https://github.com/AlbertoRodrigues/generalized_model_tree/blob/main/images/arvreg.png) 
 
 We can note that we have the prediction for each subset based on the specific GLM.
 
 ## Important links
 
 1. [Original paper](https://research.latinxinai.org/papers/icml/2021/pdf/paper_35.pdf) 
-2. [Artice at) Medium (in portuguese)](https://medium.com/turing-talks/%C3%A1rvore-linear-generalizada-uma-extens%C3%A3o-da-%C3%A1rvore-de-regress%C3%A3o-que-voc%C3%AA-deve-conhecer-53f9658f828c) 
+2. [Article at Medium (in portuguese)](https://medium.com/turing-talks/%C3%A1rvore-linear-generalizada-uma-extens%C3%A3o-da-%C3%A1rvore-de-regress%C3%A3o-que-voc%C3%AA-deve-conhecer-53f9658f828c) 
 
 
 
