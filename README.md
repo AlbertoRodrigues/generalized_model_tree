@@ -12,11 +12,11 @@ The idea that motivated the development of the Generalized Linear Tree is the sa
 
 For example, imagine that we want to predict a person's salary based on age and years of education. So, we could have the following regression tree:
 
-![age figure](https://github.com/AlbertoRodrigues/normal-tree.png) 
+![age figure](https://github.com/AlbertoRodrigues/generalized_model_tree/blob/main/images/normal-tree.png) 
 
 Therefore, we can think of the same structure as a tree, but instead of predicting the same value for the same subset, the prediction will be provided by a regression equation so that the prediction will be different for observations from the same subset of the tree.
 
-So the question we can ask is: how do we obtain this regression equation? One possible choice is to always use a multiple linear regression on each subset, which **is a generalized linear model with normal distribution and identity linkage function!**
+So the question we can ask is: how do we obtain this regression equation? One possible choice is to always use a multiple linear regression on each subset, which **is a generalized linear model with normal distribution and identity link function!**
 
 For example, we could have the following relationship between the explanatory variable and the response variable:
 
@@ -72,7 +72,7 @@ An example is given below:
 
 In this case, we have three subsets and for each one we have a specific GLM. The first equation (from left to right) is a simple linear regression, which is a MLG with normal distribution and identity link function for observations that are less than or equal to 1.55, the second equation given by a MLG with distribution gamma and inverse quadratic link function for observations less than or equal to 1.95 and greater than 1.55 and the third equation is provided by an MLG with inverse normal distribution and logarithmic link function for observations greater than 1.95.
 
-Prediction equations are provided through the inverse function of the link function, but do not worry, this is a specific component of MLG. Despite not being visualized in the tree, the probability distributions for each subset can be verified in the [developed code of all training in the R programming language.]() 
+Prediction equations are provided through the inverse function of the link function, but do not worry, this is a specific component of MLG. Despite not being visualized in the tree, the probability distributions for each subset can be verified in the [developed code of all training in the R programming language.](https://github.com/AlbertoRodrigues/generalized_model_tree/blob/main/amg_code_prediction.R) 
 
 # Predicting new observations
 
